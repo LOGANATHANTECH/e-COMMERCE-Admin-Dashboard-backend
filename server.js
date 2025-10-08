@@ -14,8 +14,7 @@ const PORT = process.env.PORT || 5000;
 // CORS Configuration
 
 const allowedOrigins = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
+    'https://ecommercedashbored.netlify.app',
 ];
 const corsOptions = {
     origin: function (origin, callback) {
