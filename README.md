@@ -1,4 +1,4 @@
-# 📋 E-COMMERCE ADMIN DASHBOARD - PROJECT SUBMISSION
+# 📋 E-COMMERCE ADMIN DASHBOARD Axios, CORS, file uploads , prisma , neon PostgreSQL Online DB
 
 ## 1. Project Overview & Status
 
@@ -8,7 +8,7 @@ This is a full-stack, single-page application (SPA) designed to manage product i
 | :--- | :--- | :--- | :--- |
 | **Frontend** | React, Vite, React Router | **Netlify** | Deployed & Live |
 | **Backend (API)** | Node.js, Express, **Prisma (Neon Adapter)** | **Render (Web Service)** | Deployed & Live |
-| **Database** | PostgreSQL | **Render Postgres** (via Neon Adapter) | Deployed & Migrated |
+| **Database** | PostgreSQL | **Neon Postgres** (via Neon Adapter) | Deployed & Migrated |
 
 ### 🌐 Public URLs
 
@@ -16,7 +16,7 @@ This is a full-stack, single-page application (SPA) designed to manage product i
 | :--- | :--- |
 | **Frontend (Dashboard)** | `https://ecommercedashbored.netlify.app` |
 | **Backend API Base** | `https://e-commercedashboard-backend.onrender.com/api` |
-| **test api available for no origin(your browser), ${BASE_API_URL}/users, ${BASE_API_URL}/users/admin, ${BASE_API_URL}/products, ${BASE_API_URL}/products/4** | `BASE_API_URL="https://e-commercedashboard-backend.onrender.com/api"` |
+| **test api available for no origin(your browser),   ${BASE_API_URL}/users,  ${BASE_API_URL}/users/admin,  ${BASE_API_URL}/products,  ${BASE_API_URL}/products/4** | `BASE_API_URL="https://e-commercedashboard-backend.onrender.com/api"` |
 
 ***
 
