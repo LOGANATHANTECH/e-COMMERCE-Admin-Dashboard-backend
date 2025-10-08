@@ -15,7 +15,8 @@ This is a full-stack, single-page application (SPA) designed to manage product i
 | Service | URL |
 | :--- | :--- |
 | **Frontend (Dashboard)** | `https://ecommercedashbored.netlify.app` |
-| **Backend API Base** | `https://[your-backend-name].onrender.com` |
+| **Backend API Base** | `https://e-commercedashboard-backend.onrender.com/api` |
+| **test api available for no origin(your browser), ${BASE_API_URL}/users, ${BASE_API_URL}/users/admin, ${BASE_API_URL}/products, ${BASE_API_URL}/products/4** | `BASE_API_URL="https://e-commercedashboard-backend.onrender.com/api"` |
 
 ***
 
