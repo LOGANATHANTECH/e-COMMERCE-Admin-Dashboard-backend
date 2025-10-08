@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend pard for dashboared aPPLICATION",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "start test",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "connecting",
+    "with",
+    "frontend",
+    "and",
+    "backend"
+  ],
+  "author": "loganathan",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@prisma/adapter-neon": "^6.16.3",
+    "@prisma/client": "^6.16.3",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "lodash": "^4.17.21",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.16.3"
+  }
+}

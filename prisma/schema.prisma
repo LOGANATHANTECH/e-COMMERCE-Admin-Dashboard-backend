@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+// 1. User Model
+model User {
+  id          Int       @id @default(autoincrement())
+  email       String    @unique
+  password    String    
+  name        String?
+  role        String    @default("ADMIN") //ADMIN, EDITOR, STAFF
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// 2. Product Model 
+model Product {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  description String?
+  price       Float     
+  stock       Int       
+  category    String?   
+  imageSrc    Bytes?     
+  createdAt   DateTime  @default(now())
+  
+  orderItems  OrderItem[]
+  reviews     Review[]    
+}
+
+// 3. Customer Model 
+model Customer {
+  id          Int         @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String      @unique
+  phone       String?
+  createdAt   DateTime    @default(now())
+  
+  orders      Order[]
+  addresses   Address[]   
+  reviews     Review[]    
+}
+
+// 4. Order Model 
+model Order {
+  id          Int           @id @default(autoincrement())
+  orderDate   DateTime      @default(now())
+  totalAmount Float
+  status      String        @default("PENDING") 
+  
+  // Relations to Customer, OrderItem, and Address
+  customerId  Int
+  customer    Customer      @relation(fields: [customerId], references: [id])
+  
+  shippingAddressId Int? 
+  shippingAddress Address?  @relation(fields: [shippingAddressId], references: [id])
+
+  orderItems  OrderItem[]
+}
+
+
+// 5. OrderItem Model 
+model OrderItem {
+  id          Int       @id @default(autoincrement())
+  quantity    Int
+  unitPrice   Float     
+  
+  orderId     Int
+  order       Order     @relation(fields: [orderId], references: [id])
+  
+  productId   Int
+  product     Product   @relation(fields: [productId], references: [id])
+  
+  @@unique([orderId, productId])
+}
+
+// 6. Address Model 
+model Address {
+  id          Int       @id @default(autoincrement())
+  street      String
+  city        String
+  state       String
+  zip         String
+  country     String
+  isDefault   Boolean   @default(false)
+
+  customerId  Int
+  customer    Customer  @relation(fields: [customerId], references: [id])
+
+  orders      Order[]
+}
+
+// 7. Review Model 
+model Review {
+  id          Int       @id @default(autoincrement())
+  rating      Int       @default(5) @db.SmallInt 
+  comment     String?
+  createdAt   DateTime  @default(now())
+
+  customerId  Int
+  customer    Customer  @relation(fields: [customerId], references: [id])
+
+  productId   Int
+  product     Product   @relation(fields: [productId], references: [id])
+
+  @@unique([customerId, productId])
+}
