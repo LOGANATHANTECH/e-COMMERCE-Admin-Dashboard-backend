@@ -18,7 +18,7 @@ Ensure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [Your-Repo-URL]
+    git clone https://github.com/LOGANATHANTECH/e-COMMERCE-Admin-Dashboard-backend.git
     cd e-COMMERCE-Admin-Dashboard/server
     ```
 
