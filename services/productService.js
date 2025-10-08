@@ -3,11 +3,20 @@ import prisma from "../lib/prisma.js";
 // Fetch all products from the database
 export async function getAllProducts() {
     try {
-        const products = await prisma.Product.findMany(
+        const products = await prisma.Product.findMany({
+            select: {
+                id: true,
+                name: true,
+                description: true,
+                price: true,
+                stock: true,
+                category: true,
+                createdAt: true,
+            }
             // {
             // orderBy:{createdAt:'desc'}
             // }
-        );
+    });
         return products;
     } catch (error) {
         throw new Error(`Failed to retrieve products. ${error.message}`);
